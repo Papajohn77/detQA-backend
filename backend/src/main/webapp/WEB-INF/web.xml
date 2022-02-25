@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+    <servlet>
+        <servlet-name>QuestionsEndpoint</servlet-name>
+        <servlet-class>servlets.QuestionsEndpoint</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QuestionsEndpoint</servlet-name>
+        <url-pattern>/api/questions</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>QuestionEndpoint</servlet-name>
+        <servlet-class>servlets.QuestionEndpoint</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QuestionEndpoint</servlet-name>
+        <url-pattern>/api/question</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AnswersEndpoint</servlet-name>
+        <servlet-class>servlets.AnswersEndpoint</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AnswersEndpoint</servlet-name>
+        <url-pattern>/api/answers</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AnswerEndpoint</servlet-name>
+        <servlet-class>servlets.AnswerEndpoint</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AnswerEndpoint</servlet-name>
+        <url-pattern>/api/answer</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CategoriesEndpoint</servlet-name>
+        <servlet-class>servlets.CategoriesEndpoint</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CategoriesEndpoint</servlet-name>
+        <url-pattern>/api/categories</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SuggestionsEndpoint</servlet-name>
+        <servlet-class>servlets.SuggestionsEndpoint</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SuggestionsEndpoint</servlet-name>
+        <url-pattern>/api/suggestions</url-pattern>
+    </servlet-mapping>
+</web-app>
