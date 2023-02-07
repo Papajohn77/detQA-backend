@@ -1,0 +1,34 @@
+services:
+  mysql-db:
+    image: mysql:8.0.28
+    container_name: mysql-db
+    volumes:
+      - mysql-db-data:/var/lib/mysql
+    env_file:
+      - ./env/mysql.env
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      - "127.0.0.1:8000:80"
+    env_file:
+      - ./env/phpmyadmin.env
+    restart: unless-stopped
+    depends_on:
+      - mysql-db
+
+  tomcat:
+    image: papajohn77/detqa-backend
+    container_name: tomcat
+    ports:
+      - "127.0.0.1:8080:8080"
+    env_file:
+      - ./env/tomcat.env
+    restart: unless-stopped
+    depends_on:
+      - mysql-db
+
+volumes:
+  mysql-db-data:
