@@ -20,13 +20,13 @@ public class SuggestionsEndpoint extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         allowCORS(response);
 
         String searchString = request.getParameter("search");
         List<Suggestion> suggestions = new QuestionDAO().getSuggestions(searchString);
         response.getWriter().write(new Gson().toJson(suggestions));
-	}
+        }
 
     private void allowCORS(HttpServletResponse response) {
         response.addHeader("Access-Control-Allow-Origin", "*");

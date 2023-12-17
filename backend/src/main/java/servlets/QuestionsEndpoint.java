@@ -22,7 +22,7 @@ public class QuestionsEndpoint extends HttpServlet {
     private static final int QUESTIONS_PER_PAGE = 3;
 
     @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         allowCORS(response);
 
         QuestionDAO questionDAO = new QuestionDAO();
@@ -40,7 +40,7 @@ public class QuestionsEndpoint extends HttpServlet {
         }
 
         response.getWriter().write(new Gson().toJson(questions));
-	}
+        }
 
     private void allowCORS(HttpServletResponse response) {
         response.addHeader("Access-Control-Allow-Origin", "*");

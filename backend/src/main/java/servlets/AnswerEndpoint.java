@@ -27,12 +27,12 @@ public class AnswerEndpoint extends HttpServlet {
     }
 
     @Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         allowCORS(response);
 
         SubmittedAnswer submittedAnswer = new Gson().fromJson(request.getReader(), SubmittedAnswer.class);
         new AnswerDAO().postAnswer(submittedAnswer.getBody(), submittedAnswer.getQuestionId());
-	}
+        }
 
     private void allowCORS(HttpServletResponse response) {
         response.addHeader("Access-Control-Allow-Origin", "*");

@@ -20,12 +20,12 @@ public class CategoriesEndpoint extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         allowCORS(response);
 
         List<Category> categories = new CategoryDAO().getCategories();
         response.getWriter().write(new Gson().toJson(categories));
-	}
+        }
 
     private void allowCORS(HttpServletResponse response) {
         response.addHeader("Access-Control-Allow-Origin", "*");

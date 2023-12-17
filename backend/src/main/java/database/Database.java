@@ -14,11 +14,11 @@ public class Database {
         Connection conn = null;
 
         try {
-			Class.forName(DATABASE_DRIVER);
+            Class.forName(DATABASE_DRIVER);
             conn = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return conn;
     }

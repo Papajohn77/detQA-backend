@@ -24,21 +24,21 @@ public class QuestionEndpoint extends HttpServlet {
     }
 
     @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         allowCORS(response);
 
         int question_id = Integer.parseInt(request.getParameter("id"));
         Question question = new QuestionDAO().getQuestion(question_id);
         response.getWriter().write(new Gson().toJson(question));
-	}
+        }
 
     @Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         allowCORS(response);
 
         SubmittedQuestion submittedQuestion = new Gson().fromJson(request.getReader(), SubmittedQuestion.class);
         new QuestionDAO().postQuestion(submittedQuestion.getTitle(), submittedQuestion.getBody(), submittedQuestion.getCategory());
-	}
+        }
 
     private void allowCORS(HttpServletResponse response) {
         response.addHeader("Access-Control-Allow-Origin", "*");

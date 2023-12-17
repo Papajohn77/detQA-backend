@@ -21,13 +21,13 @@ public class AnswersEndpoint extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         allowCORS(response);
 
         int question_id = Integer.parseInt(request.getParameter("id"));
         List<Answer> answers = new AnswerDAO().getAnswers(question_id);
         response.getWriter().write(new Gson().toJson(answers));
-	}
+        }
 
     private void allowCORS(HttpServletResponse response) {
         response.addHeader("Access-Control-Allow-Origin", "*");
